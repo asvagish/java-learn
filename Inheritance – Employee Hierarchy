@@ -1,0 +1,51 @@
+// Base class
+class Employee {
+    String name;
+    double salary;
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: $" + salary);
+    }
+}
+
+// Subclass Manager
+class Manager extends Employee {
+    String department;
+
+    @Override
+    void display() {
+        super.display();  // call base display
+        System.out.println("Department: " + department);
+        System.out.println();
+    }
+}
+
+// Subclass Developer
+class Developer extends Employee {
+    String programmingLanguage;
+
+    @Override
+    void display() {
+        super.display();  // call base display
+        System.out.println("Programming Language: " + programmingLanguage);
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Manager mgr = new Manager();
+        mgr.name = "Alice";
+        mgr.salary = 90000;
+        mgr.department = "HR";
+
+        Developer dev = new Developer();
+        dev.name = "Bob";
+        dev.salary = 80000;
+        dev.programmingLanguage = "Java";
+
+        mgr.display();
+        dev.display();
+    }
+}
